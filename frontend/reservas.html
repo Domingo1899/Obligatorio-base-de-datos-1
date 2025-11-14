@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reservas</title>
+</head>
+<body>
+
+<h1>Reservas</h1>
+
+<button onclick="cargarReservas()">Cargar reservas</button>
+
+<ul id="lista"></ul>
+
+<h3>Crear reserva</h3>
+Sala: <input id="res_sala"><br>
+Edificio: <input id="res_edificio"><br>
+Fecha (YYYY-MM-DD): <input id="res_fecha"><br>
+Turno (id_turno): <input id="res_turno"><br>
+CI participante solicitante: <input id="res_ci"><br>
+Participantes (separados por coma): <input id="res_participantes"><br>
+
+<button onclick="crearReserva()">Crear reserva</button>
+
+<script src="app.js"></script>
+</body>
+</html>
