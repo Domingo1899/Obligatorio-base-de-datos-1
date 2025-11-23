@@ -1,0 +1,47 @@
+services:
+  backend:
+    build: ./backend
+    container_name: obligatorio_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASS=rootpassword
+      - DB_NAME=gestion_salas
+    depends_on:
+      - db
+    networks:
+      - app_net
+    restart: on-failure
+
+
+  db:
+    image: mysql:8.0
+    container_name: obligatorio_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=gestion_salas
+    volumes:
+      - ./backend/database/TablasObligatorio.sql:/docker-entrypoint-initdb.d/1_schema.sql:ro
+      - ./backend/database/IngresoDatos.sql:/docker-entrypoint-initdb.d/2_data.sql:ro
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app_net
+
+  frontend:
+    build: ./frontend
+    container_name: obligatorio_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app_net
+
+volumes:
+  mysql_data:
+
+networks:
+  app_net:
+    driver: bridge

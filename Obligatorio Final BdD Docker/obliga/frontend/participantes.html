@@ -1,0 +1,27 @@
+<h1>Participantes</h1>
+
+ID Reserva:
+<input id="reservaId"><br><br>
+
+<button onclick="cargarParticipantes()">Cargar participantes</button>
+
+<ul id="lista"></ul>
+
+<h3>Crear participante</h3>
+CI: <input id="ci"><br>
+Nombre: <input id="nombre"><br>
+Apellido: <input id="apellido"><br>
+Email: <input id="email"><br>
+<button onclick="crearParticipante()">Crear</button>
+
+<script src="app.js"></script>
+<h3>Modificar participante</h3>
+CI: <input id="ci_mod"><br>
+Nuevo nombre: <input id="nombre_mod"><br>
+Nuevo apellido: <input id="apellido_mod"><br>
+Nuevo email: <input id="email_mod"><br>
+<button onclick="modificarParticipante()">Modificar</button>
+
+<h3>Eliminar participante</h3>
+CI: <input id="ci_eliminar"><br>
+<button onclick="eliminarParticipante()">Eliminar</button>
